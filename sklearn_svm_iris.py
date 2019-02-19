@@ -38,6 +38,7 @@ for c in C_vals:
     clf.fit(set_vers_X, set_vers_y)
     set_vers_w = clf.coef_[0][:4]
     set_vers_b = clf.coef_[0][4]
+    margin = 1 / norm(set_vers_w)
 
     # Get decision function values
     vals = clf.decision_function(set_vers_X)
@@ -49,6 +50,7 @@ for c in C_vals:
 
     print(f"=========== Setosa & Versicolor (C = {c}) ===========")
     print(f"Weight Vector: {set_vers_w}")
+    print(f"Margin: {margin}")
     print(f"Bias: {set_vers_b}")
     print(f"Hinge Loss Value: {get_hinge_loss_val(clf.coef_[0], c, set_vers_y, vals)}\n")
 
@@ -58,6 +60,7 @@ for c in C_vals:
     clf.fit(vers_virg_X, vers_virg_y)
     vers_virg_w = clf.coef_[0][:4]
     vers_virg_b = clf.coef_[0][4]
+    margin = 1 / norm(set_vers_w)
 
     # Get decision function values
     vals = clf.decision_function(vers_virg_X)
@@ -71,6 +74,7 @@ for c in C_vals:
 
     print(f"=========== Versicolor & Virginica (C = {c}) ===========")
     print(f"Weight Vector: {vers_virg_w}")
+    print(f"Margin: {margin}")
     print(f"Bias: {vers_virg_b}")
     print(f"Hinge Loss Value: {get_hinge_loss_val(clf.coef_[0], c, vers_virg_y, vals)}\n")
 
@@ -80,6 +84,7 @@ for c in C_vals:
     clf.fit(set_virg_X, set_virg_y)
     set_virg_w = clf.coef_[0][:4]
     set_virg_b = clf.coef_[0][4]
+    margin = 1 / norm(set_vers_w)
 
     # Get decision function values
     vals = clf.decision_function(set_virg_X)
@@ -93,5 +98,6 @@ for c in C_vals:
 
     print(f"=========== Setosa & Virginica (C = {c}) ===========")
     print(f"Weight Vector: {set_virg_w}")
+    print(f"Margin: {margin}")
     print(f"Bias: {set_virg_b}")
     print(f"Hinge Loss Value: {get_hinge_loss_val(clf.coef_[0], c, set_virg_y, vals)}\n")
